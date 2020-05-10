@@ -1,0 +1,10 @@
+#my ignore
+image/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.gz
+*.toc
