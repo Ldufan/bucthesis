@@ -1,10 +1,10 @@
 #my ignore
-image/
+#image/
+#*.pdf
 *.aux
 *.bbl
 *.blg
 *.log
 *.out
-*.pdf
 *.gz
 *.toc
