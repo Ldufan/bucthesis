@@ -1,52 +1,63 @@
 \documentclass{buctart}
 \begin{document}
-	
+
+\institute{机电工程学院}
+\major{机电工程实验班}
 \class{机实1601}
-\studentid{2016013288}
-\title{无键相工况下往复压缩机振动冲击相位\\自动识别方法研究}
-\titleen{RESEARCH ON AUTOMATIC IDENTIFICATION METHOD OF VIBRATION AND SHOCK PHASE OF RECIPROCATING COMPRESSOR WITHOUT KEYPHASOR}
-\author{雷芙常}
-\teacher{王\hspace{1em}瑶}
+\studentid{2016000000}
+\title{基于\LaTeX{}排版的北京化工大学本科\\毕业设计论文模板}
+\titleen{BEIJING UNIVERSITY OF CHEMICAL TECHNOLOGY UNDERGRADUATE GRADUATION DESIGN THESIS TEMPLATE BASED ON LATEX TYPESETTING}
+\author{独小凡}
+\teacher{独\hspace{1em}凡}
 \maketitle%生成封面
 \frontmatter%诚信申明
 \abstractzh{\par
-	往复式压缩机是石油化工等行业不可或缺的关键设备，其零部件多、结构复杂、故障率高。传感器是状态信号获取的主要工具，传感器性能的不稳定或者安装操作时的失误，往往会产生错误的监测信号，其后果十分严重。在往复式压缩机中键相信号用来对采集的状态信号进行整周期重采样，实现信号和压缩机活塞位置的精确匹配，一旦键相传感器出现故障将导致信号与压缩机状态无法匹配，进而无法进行其故障检测与诊断。因此监测诊断系统传感器的优化以及少传感器下的智能诊断技术的需求日益强烈。\par
-	本文通过查阅相关文献及资料，运用哈希算法计算图像相似度的方法，先确定截取窗口大小即周期长度，进而确定起始相位最终实现无键相信号的整周期截取。将算法截取的整周期信号与键相截取的信号进行相似度计算，得到了理想的结果。在此基础上运用插值求包络的方法进行振动冲击相位的识别，得到了满意的效果，最终实现了无键相工况下往复式压缩机振动信号的整周期截取以及相位的自动识别。\par}%中文摘要
-	{往复式压缩机，无键相，故障诊断}%中文关键词
+	毕业设计（论文）是对学生进行全面训练的重要实践性教学环节，是高等学校实现本科培养目标的重要阶段。为保证本科生毕业设计（论文）质量，请参照以下规范撰写毕业设计（论文）。\par
+	摘要应具有独立性和自含性，即不阅读论文的全文，就能获得必要的信息。摘要中有数据、结论，是一篇完整的短文，可以独立使用和引用。摘要的内容应包含与论文正文等同量的主要信息，供读者确定有无必要阅读全文，也可供二次文献（文摘等）采用。摘要一般应说明研究工作的目的、实验方法、结果和最终结论等，重点突出具有创新性的成果和新见解。\par
+	中文摘要一般为300字左右，英文摘要为1500印刷符号左右，含中、英文摘要关键词。英文摘要应与中文摘要内容一致。\par}%中文摘要
+	{毕业设计，学位论文，\LaTeX{}模板}%中文关键词
 \newpage
 \abstracten{\par
-	The reciprocating compressor is an indispensable key equipment in the petrochemical industry and other industries. It has many parts, complex structure and high failure rate. Sensors are the main tool for obtaining status signals. Unstable sensor performance or errors during installation and operation often produce erroneous monitoring signals, with serious consequences. In the reciprocating compressor, the key phase signal is used to resample the collected status signal over the entire period to achieve accurate matching of the signal and the compressor piston position. Once the key phase sensor fails, the signal will not match the compressor status, and then Its failure detection and diagnosis cannot be carried out. Therefore, there is an increasing demand for the optimization of sensors in monitoring and diagnosis systems and the intelligent diagnosis technology with fewer sensors.\par
-	In this paper, by referring to relevant literature and data, and using the hash algorithm to calculate the image similarity, the size of the intercept window, that is, the period length, is determined first, and then the initial phase is finally determined to achieve the full period intercept of the keyless phase signal. By calculating the similarity between the signal intercepted by the algorithm and the signal intercepted by the key phase, an ideal result is obtained. On this basis, the method of interpolating and enveloping was used to identify the vibration and shock phases, and satisfactory results were obtained. Finally, the full-cycle interception of the vibration signal of the reciprocating compressor and the automatic identification of the phase were realized under the keyless phase condition}%英文摘要
-	{Reciprocating compressor, no key phase, fault diagnosis}%英文关键词
+	Graduation design (thesis) is an important practical teaching link for comprehensive training of students, and an important stage for colleges and universities to achieve the goal of undergraduate training. In order to ensure the quality of graduation design (thesis) for undergraduates, please refer to the following specifications to write graduation design (thesis). \par
+	The abstract should be independent and self-contained, that is, the necessary information can be obtained without reading the full text of the paper. The summary contains data and conclusions, and is a complete short article that can be used and quoted independently. The content of the abstract should contain the same amount of main information as the body of the paper, for readers to determine whether it is necessary to read the full text, or for secondary literature (abstract etc.) The abstract should generally explain the purpose of the research work, experimental methods, results and final conclusions, etc., focusing on innovative results and new insights.\par}%英文摘要
+	{Graduation design, degree thesis, \LaTeX{} template}%英文关键词
 \clearpage
 \tableofcontents%目录
 %\addcontentsline{toc}{section}{目录}
 \clearpage
-\symbols{符号和缩略词说明符号和缩略词说明符号和缩略词说明符号和缩略词说明}
-\symbolpage
+
+\symbolpage{
+	\begin{table}[h]
+		\raggedright
+		\zihao{4}
+		\renewcommand\arraystretch{1.5}
+%		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{p{6em}l}
+				\LaTeX{} & 基于\TeX{}的排版系统 \\ 
+				BUCT     & 北京化工大学         \\ 
+				awsl     & 表示X太可爱          \\ 
+			\end{tabular}%
+%		}
+\end{table}}
 \startmain
 \section{绪论}
 \subsection{研究背景}{\par
-	随着现代科学技术的迅速发展, 机械设备日益朝着高度自动化的方向发展，造成机械设备逐渐复杂且零、部件之间的联系更加紧密。一旦某一部分发生故障，往往会引起整台设备的瘫痪，而且频繁的故障和较长的检修时间常常造成巨大的经济损失和人员伤亡事故的发生\textsuperscript{\cite{zjsw}}。\par}
-\subsubsection{背景}{
-	人们对机械设备的可靠性、可用性、可维修性、经济性与安全性提出了越来越高的要求，现代工业生产中的设备系统比以往更注重效率和能耗\textsuperscript{\cite{kocher99}}，且环保的要求越来越高\cite{Krasnogor2004e}。\par}
-	$a^{2x+3} 	\oint_{C} x^3, dx + 4y^2, dy$\par
-	$$\begin{cases}
-	a_1x+b_1y+c_1z=d_1\\
-	a_2x+b_2y+c_2z=d_2\\
-	a_3x+b_3y+c_3z=d_3\\
-	\end{cases}
-	$$
+	学位论文一般应由以下几个主要部分构成，依次为：封面，诚信申明，中、英文题目，中、英文摘要，关键词，目录，符号和缩略词说明，论文正文，参考文献，附录，致谢\textsuperscript{\cite{zjsw}}。\par
+	正文是学位论文的核心部分，一般由绪论、本论文、结论构成。包括理论分析、数据资料、计算方法、实验和测试方法、实验结果的分析和论证、个人的论点和研究成果、结论以及相关图表、照片和公式等部分。论文要求实事求是、论点明确、逻辑清楚、层次分明、文字流畅、数据真实、公式推导计算结果无误，其写作形式可因学科的特点不同而有所不同。\par}
+\subsection{国内外现状}{
+}
 	\begin{figure}[htbp]
 		\begin{center}
-			\includegraphics[scale=1.1]{image/tom.jpeg}\\
+			\includegraphics[scale=0.8]{image/tom.jpeg}\\
 			\caption{\zihao{5}小小Tom}
-%			\label{fig1-1 img1}
+			\label{fig1-tom}
 		\end{center}
 	\end{figure}
 	
 \clearpage
-\section{正文}
+\section{正文}{\par
+	正文是学位论文的核心部分，一般由绪论、本论文、结论构成。包括理论分析、数据资料、计算方法、实验和测试方法、实验结果的分析和论证、个人的论点和研究成果、结论以及相关图表、照片和公式等部分。\par
+	论文要求实事求是、论点明确、逻辑清楚、层次分明、文字流畅、数据真实、公式推导计算结果无误，其写作形式可因学科的特点不同而有所不同\textsuperscript{\cite{kocher99}}。文中若有与导师或他人共同研究的成果，必须明确标示；如果引用他人的结论，必须明确注明出处，并与参考文献引用号一致\cite{Krasnogor2004e}。}
 
 
 % 参考文献
@@ -57,16 +68,11 @@
 \bibliography{refs}}
 
 \acknowledgements{\par
-	衷心感谢导师 xxx 教授和物理系 xxx 副教授对本人的精心指导。他们的言传身教将使
-	我终生受益。	
-	在美国麻省理工学院化学系进行九个月的合作研究期间，承蒙 xxx 教授热心指导与帮助，不
-	胜感激。\par
-	感谢 xx 实验室主任 xx 教授，以及实验室全体老师和同学们的热情帮助和支
-	持！本课题承蒙国家自然科学基金资助，特此致谢。	
-	感谢  和 10，帮我节省了不少时间。}
+	衷心感谢导师 xxx 教授对本人的精心指导。他们的言传身教将使我终生受益。\par
+	感谢 xx 实验室主任 xx 教授，以及实验室全体老师和同学们的热情帮助和支持！本课题承蒙国家自然科学基金资助，特此致谢。感谢\LaTeX{}和\dufan{}的模板，帮我节省了不少时间。}
 \appendix{\par
-	附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录附录}
-
+	附录一般作为学位论文主体的补充项目。主要包括：正文内过于冗长的公式推导；供读者阅读方便所需要的辅助性的数学工具或重复性数据图表；由于过分冗长而不宜放置在正文中的计算机程序清单；具有重要参考价值的资料；论文使用的缩写说明等。附录置于参考文献之后，其页码与正文连续编排。\par}
+\addcontentsline{toc}{section}{附录}
 \end{document}
 
 

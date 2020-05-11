@@ -1,16 +1,42 @@
-\NeedsTeXFormat{LaTeX2e}[2020/02/02]
+%---------------------------------------------------------------------------%
+%-                                                                         -%
+%-                           Document Class                                -%
+%-                                                                         -%
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+%->> Identification;标识节
+%---------------------------------------------------------------------------%
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{buctart}[2020/05/10 v0.0 Buctart Template for Undergraduate]
- 
+
+
 \LoadClass[a4paper,UTF8,twoside,zihao=-4]{ctexart}[2020/05/02]
 
-\RequirePackage{multirow, setspace, graphicx,fancyhdr}
+
+\RequirePackage{multirow, setspace,fancyhdr}
 \RequirePackage{indentfirst}%首行缩进
 %\RequirePackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}%目录
 \RequirePackage[hidelinks]{hyperref}%目录
+%\RequirePackage{titlesec}%章节格式
+\RequirePackage{geometry}%页边距
+\RequirePackage{graphicx}%图片
 \setlength{\parindent}{2em}
 
 \CTEXsetup[name={第,章},format={\centering\heiti\zihao{3}}]{section}
 \CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsection}
+\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsubsection}
+%\CTEXsetup[format={\raggedright\heiti\zihao{-4}}]{subsubsubsection}
+%\ctexset{section={
+%		name   = {第,章},
+%		format = {\centering\heiti\zihao{3}}
+%}
+%	subsection{
+%		format = {\raggedright\heiti\zihao{4}},
+%	}
+%}
+%\ctexset[format={\raggedright\heiti\zihao{4}}]{subsection}
+%\titleformat{\section}{\centering\zihao{3}\heiti}{第\,\thesection\,章}{1em}{}[]
 
 \setCJKfamilyfont{hk}{华文行楷}
 \newcommand{\hk}{\CJKfamily{hk}}
@@ -19,13 +45,13 @@
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
-\renewcommand{\contentsname}{\textbf{目\hspace{1em}录}}
+\renewcommand{\contentsname}{\heiti\zihao{3}\textbf{目\hspace{1em}录}}
 
 %\linespread{1.2}
 \setlength{\baselineskip}{22pt}%22磅
 %\renewcommand{\baselinestretch}{1.5}%1.5倍
 
-\usepackage{geometry}
+%\usepackage{geometry}
 \geometry{left = 2.7cm, right = 2.7cm, top = 3.5cm, bottom = 2.6cm}
 
 %-------------------------页眉页脚----------------------------
@@ -37,18 +63,32 @@
 \renewcommand{\headrulewidth}{0.4pt} % 注意不用 \setlength
 \renewcommand{\footrulewidth}{0pt}
 %-------------------------页眉页脚----------------------------
+\newcommand\institute[1]{\def\IHEP@value@institute{#1}}
+\newcommand\major[1]{\def\IHEP@value@major{#1}}
 \newcommand\class[1]{\def\IHEP@value@class{#1}}
 \newcommand\studentid[1]{\def\IHEP@value@studentid{#1}}
 \renewcommand\title[1]{\def\IHEP@value@title{#1}}
 \newcommand\titleen[1]{\def\IHEP@value@titleen{#1}}
 \renewcommand\author[1]{\def\IHEP@value@author{#1}}
 \newcommand\teacher[1]{\def\IHEP@value@teacher{#1}}
-\newcommand\symbols[1]{\def\IHEP@value@symbols{#1}}
+%\newcommand\symbols[1]{\def\IHEP@value@symbols{#1}}
+\def\dufan{~\textbf{独凡}~}
 
+%\newif\ifmaketitle
+%\DeclareOption{titlepag}{\@maketitletrue}
+%\DeclareOption{notitlepag}{\@maketitlefalse}
+%\def\maketitlefalse{
+%	123
+%}
+%\def\maketitletrue{
+%	456
+%}
 %---------------------封面----------------------
+
 \renewcommand{\maketitle}{\begin{titlepage}
+
 	\raggedleft			
-		{\zihao{4}班级：{\IHEP@value@class~} 学号：{\IHEP@value@studentid~}}\\
+		{\zihao{4}\textbf{班级：{\IHEP@value@class~} 学号：{\IHEP@value@studentid~}}}\\
 		\vspace{2em}
 
 	\centering
@@ -56,7 +96,8 @@
 		\vspace{3em}
 		{\zihao{1}\textbf{毕业设计(论文)}}\\
 		\vspace{3em}
-		{\heiti\zihao{3}\textbf{论文题目：\IHEP@value@title~}}\\
+		{\zihao{3}\textbf{论文题目：\IHEP@value@title}}\\
+%		{\zihao{3}\textbf{论文题目：基于latex的毕业设计\\论文模板}}\\
 		\vspace{3ex}
 		
 		\begin{table}[h]
@@ -64,10 +105,10 @@
 			\zihao{4}
 			\renewcommand\arraystretch{2}
 			\begin{tabular}{ll}
-				学院名称： & 机电工程学院   \\
-				专\hspace{2em}业：   & 机电工程实验班  \\
-				学生姓名： &{~\IHEP@value@author~}     \\
-				导师姓名： &{~\IHEP@value@teacher~}   \\
+				\textbf{学院名称：}& \textbf{\IHEP@value@institute}   \\
+				\textbf{专\hspace{2em}业：}& \textbf{\IHEP@value@major}  \\
+				\textbf{学生姓名：} &\textbf{\IHEP@value@author}     \\
+				\textbf{导师姓名：} &\textbf{\IHEP@value@teacher}   \\
 			\end{tabular}
 		\end{table}
 %		\vspace{2em}
@@ -79,8 +120,8 @@
 			\renewcommand\arraystretch{1.5}
 			\begin{tabular}{|c|p{10em}|p{10em}|}
 				\hline
-				考核成绩                        & \multicolumn{2}{l|}{}                             \\ \hline
-				\multirow{7}{6em}{审核小组成\\员以及职称} & \multicolumn{1}{c|}{姓名} & \multicolumn{1}{c|}{职称} \\ \cline{2-3} 
+				\textbf{考核成绩}                        & \multicolumn{2}{l|}{}                             \\ \hline
+				\multirow{7}{6em}{\textbf{审核小组成\\员以及职称}} & \multicolumn{1}{c|}{\textbf{姓名}} & \multicolumn{1}{c|}{\textbf{职称}} \\ \cline{2-3} 
 				&                         &                         \\ \cline{2-3} 
 				&                         &                         \\ \cline{2-3} 
 				&                         &                         \\ \cline{2-3} 
@@ -118,9 +159,11 @@
 \newcommand{\abstractzh}[2]{
 	\begin{center}
 		{\heiti\zihao{3}\textbf{\IHEP@value@title}}\\
-		\myspace{1}
-		{\heiti\zihao{-3}\textbf{摘\hspace{1em}要}}\\
 %		\myspace{1}
+		\vspace{1em}
+		{\heiti\zihao{-3}\textbf{摘\hspace{1em}要}}
+%		\myspace{1}
+		\vspace{1ex}
 	\end{center}
 	#1
 	\myspace{1}
@@ -129,19 +172,21 @@
 \newcommand{\abstracten}[2]{
 	\begin{center}
 		{\zihao{3}\textbf{\IHEP@value@titleen}}\\
-		\myspace{1}
+%		\myspace{3}
+		\vspace{3em}
 		{\heiti\zihao{-3}{ABSTRACT}}\\
-%		\myspace{1}
+%		\myspace{2}
+		\vspace{2ex}
 	\end{center}
 	#1
 	\myspace{1}
-	\noindent{\heiti\zihao{4}\textbf{KEY\hspace{1em}WORDS:}}{\songti\zihao{4}#2}
+	\noindent{\heiti\zihao{4}\textbf{KEY\hspace{1em}WORDS：}}{\songti\zihao{4}#2}
 }
 \newcommand{\symbolpage}[1]{
 	\begin{center}
 		{\heiti\zihao{3}符号和缩略词说明}\\
 		\myspace{1}
-		{~\IHEP@value@symbols~}
+%		{~\IHEP@value@symbols~}
 		#1
 	\end{center}
 }
