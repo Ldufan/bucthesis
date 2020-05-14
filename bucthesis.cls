@@ -47,41 +47,44 @@
 \RequirePackage{fontawesome}%github图标
 \RequirePackage{listings}%代码环境
 %\RequirePackage{xunicode-addon}%带圈的编号
-
 %\RequirePackage{emoji}%emoji
-%\RequirePackage{wasysym}%颜色
-
-%\RequirePackage{color}%颜色
+%\RequirePackage{wasysym}
+%\RequirePackage{color}
 %\RequirePackage{bookmark}%pdf书签
-\setlength{\parindent}{2em}%首行缩进
 
-%\CTEXsetup[name={第,章},format={\centering\heiti\zihao{3}}]{section}
-%\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsection}
-%\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsubsection}
+
+
+
 %---------------------------------------------------------------------------%
 %->> Page layout,页面布局
 %---------------------------------------------------------------------------%
 \geometry{left = 2.7cm, right = 2.7cm, top = 3.5cm, bottom = 2.6cm}
-%\renewcommand{\thechapter}{\arabic{chapter}}
+\setlength{\parindent}{2em}%首行缩进
 \titleformat{\chapter}{\centering\bfseries\heiti\zihao{3}}{第\,\thechapter\,章}{1em}{}[\vspace{-1cm}]
 \titleformat{\section}{\raggedright\bfseries\heiti\zihao{4}}{\thesection}{1em}{}
 \titleformat{\subsection}{\raggedright\bfseries\heiti\zihao{4}}{\thesubsection}{1em}{}
 \titlespacing*{\chapter} {0pt}{-22pt}{44pt}%左上下
-%\titlecontents{section}[left]{above-code}{numbered-entry-format}{numberless-entry-format}{~\titlerule*[0.6pc]{$.$}~\contentspage}[below-code]%设置目录标题格式
 \ctexset{chapter = {number = \arabic{chapter}}}%解决目录中章编号非阿拉伯的情况
-%\CTEXsetup[name = {第,章}]{chapter}
 \titlecontents{chapter}[4em]{\bfseries\zihao{4}\vspace{10pt}}{\contentslabel{4em}}{\hspace*{-4em}}{~\titlerule*[0.7pc]{$\cdot$}~\contentspage}%目录章显示设置
+
+%\renewcommand{\thechapter}{\arabic{chapter}}
+%\CTEXsetup[name={第,章},format={\centering\heiti\zihao{3}}]{section}
+%\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsection}
+%\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsubsection}
+
+%\linespread{1.2}
+\setlength{\baselineskip}{22pt}%22磅
+%\renewcommand{\baselinestretch}{2}
+
+\setCJKmainfont[BoldFont={黑体}]{宋体}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
 %---------------------------------------------------------------------------%
 %->> Custom commands,自定义命令
 %---------------------------------------------------------------------------%
 
 \theoremstyle{plain}
-%\theoremheaderfont{\heiti}
-%\theorembodyfont{\songti} \theoremindent0em
-%\theorempreskip{0pt}
-%\theorempostskip{0pt}
-%\theoremnumbering{arabic}
-%\theoremsymbol{} %定理结束时自动添加的标志
 \newtheorem{theorem}{\hspace{2em}定理}[chapter]
 \newtheorem{definition}{\hspace{2em}定义}[chapter]
 \newtheorem{lemma}{\hspace{2em}引理}[chapter]
@@ -92,15 +95,6 @@
 \renewcommand{\proofname}{\hspace{2em}\bf{证明}}
 \renewcommand{\theequation}{\arabic{chapter}—\arabic{equation}}%公式编号
 
-%\renewcommand\thefootnote{\textcircled{\@arabic\c@footnote}}%圈脚注
-%\theoremstyle{nonumberplain}
-%\theoremheaderfont{\heiti}
-%\theorembodyfont{\normalfont \rm \songti}
-%\theoremindent0em \theoremseparator{\hspace{1em}}
-%\theoremsymbol{$\square$}
-%\renewtheorem{proof}{\hspace{2em}证明}
-
-\newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
 \newcommand\institute[1]{\def\BUCT@value@institute{#1}}
 \newcommand\major[1]{\def\BUCT@value@major{#1}}
 \newcommand\class[1]{\def\BUCT@value@class{#1}}
@@ -110,60 +104,27 @@
 \renewcommand\author[1]{\def\BUCT@value@author{#1}}
 \newcommand\teacher[1]{\def\BUCT@value@teacher{#1}}
 %\newcommand\symbols[1]{\def\IHEP@value@symbols{#1}}
-\def\dufan{~\textbf{独凡}~}
-
-\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %自定义新命令\upcite, 使参考文献引用以上标出现
-
-%\renewcommand\thefigure{\@arabic\c@chapter--\@arabic\c@figure}%可行
-\renewcommand {\thefigure} {\thechapter{}-\arabic{figure}} 
-\captionsetup[figure]{labelsep=quad}
-
-\captionsetup[figure][bi-second]{name=Figure} %设置图的英文编号前缀
-\captionsetup[table][bi-second]{name=Table} %设置表的英文编号前缀
-
-\renewcommand {\thetable} {\thechapter{}-\arabic{table}} 
-\captionsetup[table]{labelsep=quad}
-
-%\CTEXsetup[format={\raggedright\heiti\zihao{-4}}]{subsubsubsection}
-%\ctexset{section={
-%		name   = {第,章},
-%		format = {\centering\heiti\zihao{3}}
-%}
-%	subsection{
-%		format = {\raggedright\heiti\zihao{4}},
-%	}
-%}
-%\ctexset[format={\raggedright\heiti\zihao{4}}]{subsection}
-%\titleformat{\section}{\centering\zihao{3}\heiti}{第\,\thesection\,章}{1em}{}[]
 
 \setCJKfamilyfont{hk}{华文行楷}
 \newcommand{\hk}{\CJKfamily{hk}}
-
-\setCJKmainfont[BoldFont={黑体}]{宋体}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-
+\def\dufan{~\textbf{独凡}~}
+\newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}  %参考文献引用以上标出现
 \renewcommand{\contentsname}{\heiti\zihao{3}\textbf{目\hspace{1em}录}}
+%\renewcommand\thefootnote{\textcircled{\@arabic\c@footnote}}%圈脚注
+%\renewcommand\thefigure{\@arabic\c@chapter--\@arabic\c@figure}%可行
 
-%\linespread{1.2}
-\setlength{\baselineskip}{22pt}%22磅
-%\renewcommand{\baselinestretch}{2}
-%\renewcommand{\baselinestretch}{1.5}%1.5倍
-
-%\usepackage{geometry}
-
-
+\renewcommand {\thefigure} {\thechapter{}-\arabic{figure}} 
+\captionsetup[figure]{labelsep=quad}
+\renewcommand {\thetable} {\thechapter{}-\arabic{table}} 
+\captionsetup[table]{labelsep=quad}
+\captionsetup[figure][bi-second]{name=Figure} %设置图的英文编号前缀
+\captionsetup[table][bi-second]{name=Table} %设置表的英文编号前缀
 
 %---------------------------------------------------------------------------%
 %->> Header and footer,页眉页脚
 %---------------------------------------------------------------------------%
 \pagestyle{fancy}
-%	\lhead{}
-%	\chead{\zihao{-5}北京化工大学本科毕业设计(论文)}
-%	\rhead{}
-%	\lfoot{}
-%	\cfoot{\bfseries\thepage}
-%	\rfoot{}
 	%\pagenumbering{Roman} %arabic 阿拉伯;Roman;roman;
 	\fancyhead[LE,LO,RE,RO]{}
 	\fancyfoot[C]{\bfseries\thepage}
@@ -172,25 +133,13 @@
 	\renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{\pagestyle{fancy}}%解决chapter页页眉不显示问题
 
-%-------------------------页眉页脚----------------------------
 
-
-
-%\newif\ifmaketitle
-%\DeclareOption{titlepag}{\@maketitletrue}
-%\DeclareOption{notitlepag}{\@maketitlefalse}
-%\def\maketitlefalse{
-%	123
-%}
-%\def\maketitletrue{
-%	456
-%}
 %---------------------------------------------------------------------------%
 %->> Titlepage,封面
 %---------------------------------------------------------------------------%
 
 \renewcommand{\maketitle}{\begin{titlepage}
-
+	
 	\raggedleft			
 		{\zihao{4}\textbf{班级：{\BUCT@value@class~} 学号：{\BUCT@value@studentid~}}}\\
 		\vspace{2em}
@@ -219,8 +168,7 @@
 		\end{table}
 %		\vspace{2em}
 		\vskip 2em
-		% Please add the following required packages to your document preamble:
-		% \usepackage{multirow}
+
 		\begin{table}[h]
 			\centering
 			\renewcommand\arraystretch{1.5}
@@ -237,13 +185,7 @@
 			\end{tabular}
 		\end{table}
 %	\pdfbookmark[0]{封面}{title} 
-%	\clearpage
 \end{titlepage}}
-
-%---------------------封面----------------------
-
-
-
 
 %---------------------------------------------------------------------------%
 %->> Declaration of Integrity,诚信申明
@@ -254,7 +196,6 @@
 	\begin{center}
 		{\heiti\zihao{3}\bfseries{诚信申明}}\\
 	\end{center}
-%	\intobmk\chapter*{诚信申明}% 显示在书签但不显示在目录
 	
 	\begin{flushleft}
 		{\zihao{3}本人申明：}\par
@@ -268,8 +209,6 @@
 	
 	\pagenumbering{Roman} %arabic 阿拉伯;Roman;roman;
 	\setcounter{page}{0}
-%	\clearpage
-%	\pdfbookmark[0]{诚信申明}{title} 
 }
 
 %---------------------------------------------------------------------------%
@@ -282,17 +221,13 @@
 		\begin{spacing}{1.2}
 			\heiti\zihao{3}\textbf{\BUCT@value@title}\\
 		\end{spacing}
-%		{\heiti\zihao{3}\textbf{\BUCT@value@title}}\\
-%		\myspace{1}
 		\vspace{1em}
 		{\heiti\zihao{-3}\textbf{摘\hspace{1em}要}}
-%		\myspace{1}
 		\vspace{1ex}
 	\end{center}
 	{\zihao{4}#1}
 	\myspace{1}
 	\noindent{\heiti\zihao{4}\textbf{关键词：}}{\songti\zihao{4}#2}
-%	\pdfbookmark[0]{中文摘要}{title} 
 }
 
 %---------------------------------------------------------------------------%
@@ -311,7 +246,6 @@
 	#1
 	\myspace{1}
 	\noindent{\heiti\zihao{4}\textbf{KEY\hspace{1em}WORDS：}}{\songti\zihao{4}#2}
-%	\pdfbookmark[0]{英文摘要}{title}
 }
 %---------------------------------------------------------------------------%
 %->> Explanation of symbols and acronyms,符号和缩略词说明
@@ -321,19 +255,15 @@
 	\begin{center}
 		{\heiti\zihao{3}符号和缩略词说明}\\
 		\myspace{1}
-%		{~\IHEP@value@symbols~}
 		#1
 	\end{center}
-%	\pdfbookmark[0]{符号说明}{title}
 }
 %---------------------------------------------------------------------------%
-%->> Explanation of symbols and acronyms,符号和缩略词说明
+%->> Main Body,正文
 %---------------------------------------------------------------------------%
 \newcommand{\startmain}{
 	\clearpage
 	\pagenumbering{arabic}
-%	\CTEXsetup[name={第,章},format={\centering\heiti\zihao{3}}]{section}
-%	\CTEXsetup[format={\raggedright\heiti\zihao{4}}]{subsection}
 }
 
 %---------------------------------------------------------------------------%
@@ -360,21 +290,3 @@
 }
 
 \endinput
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
