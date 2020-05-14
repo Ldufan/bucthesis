@@ -8,7 +8,7 @@
 %->> Identification;标识节
 %---------------------------------------------------------------------------%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{bucthesis}[2020/05/10 v0.0 Bucthesis Template for Undergraduate]
+\ProvidesClass{bucthesis}[2020/05/10 v1.0 Bucthesis Template for Undergraduate]
 
 %---------------------------------------------------------------------------%
 %->> Declare options
@@ -45,9 +45,12 @@
 \RequirePackage{amsmath,amssymb}%数学公式
 \RequirePackage{color}%颜色
 \RequirePackage{fontawesome}%github图标
+\RequirePackage{listings}%代码环境
+%\RequirePackage{xunicode-addon}%带圈的编号
+
 %\RequirePackage{emoji}%emoji
 %\RequirePackage{wasysym}%颜色
-%\RequirePackage{color}%颜色
+
 %\RequirePackage{color}%颜色
 %\RequirePackage{bookmark}%pdf书签
 \setlength{\parindent}{2em}%首行缩进
@@ -86,8 +89,10 @@
 \newtheorem{proposition}{\hspace{2em}命题}[chapter]
 \newtheorem{example}{\hspace{2em}例}[chapter]
 \newtheorem{remark}{\hspace{2em}注}
-
 \renewcommand{\proofname}{\hspace{2em}\bf{证明}}
+\renewcommand{\theequation}{\arabic{chapter}—\arabic{equation}}%公式编号
+
+%\renewcommand\thefootnote{\textcircled{\@arabic\c@footnote}}%圈脚注
 %\theoremstyle{nonumberplain}
 %\theoremheaderfont{\heiti}
 %\theorembodyfont{\normalfont \rm \songti}
